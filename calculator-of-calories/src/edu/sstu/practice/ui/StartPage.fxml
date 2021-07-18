@@ -1,11 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.sstu.practice.controllers.StartPageController">
-    
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" style="-fx-background-color: #FFE4B5;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.sstu.practice.controllers.StartPageController">
+   <children>
+      <AnchorPane layoutX="70.0" layoutY="78.0" prefHeight="344.0" prefWidth="243.0" AnchorPane.bottomAnchor="78.0" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="78.0">
+         <children>
+            <ImageView fitHeight="344.0" fitWidth="243.0" layoutY="81.0" opacity="0.24" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/food.jpeg" />
+               </image>
+               <effect>
+                  <BoxBlur height="10.0" width="10.0" />
+               </effect>
+            </ImageView>
+            <Label layoutX="-16.0" layoutY="30.0" text="Калькулятор калорий">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="25.0" />
+               </font>
+            </Label>
+            <Text layoutX="29.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Калькулятор калорий позволит вам рассчитать то количество энергии, которое необходимо ежедневно получать вашему организму в зависимости от вашего роста, веса, возраста и степени физической активности (норма калорий)." wrappingWidth="200.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="329.0" layoutY="18.0" prefHeight="464.0" prefWidth="406.0" AnchorPane.bottomAnchor="18.0" AnchorPane.rightAnchor="14.600000000000023" AnchorPane.topAnchor="18.0">
+         <children>
+            <Button fx:id="countButton" layoutX="246.0" layoutY="424.0" mnemonicParsing="false" onAction="#submit" prefHeight="26.0" prefWidth="137.0" style="-fx-background-color: #F0E68C; -fx-background-radius: 25 25 25 25;" text="Рассчитать" />
+            <Label layoutX="14.0" layoutY="72.0" text="Укажите ваши данные:">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <Pane layoutX="22.0" layoutY="105.0" prefHeight="306.0" prefWidth="223.0" style="-fx-background-color: #FFFFE0; -fx-background-radius: 10 10 10 10;">
+               <children>
+                  <Pane layoutX="14.0" layoutY="14.0" prefHeight="90.0" prefWidth="196.0">
+                     <children>
+                        <RadioButton layoutX="24.0" layoutY="27.0" mnemonicParsing="false" selected="true" text="Мужчина">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="gender" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton layoutX="23.0" layoutY="58.0" mnemonicParsing="false" text="Женщина" toggleGroup="$gender" />
+                        <Label layoutX="10.0" layoutY="6.0" text="Пол:" />
+                     </children>
+                  </Pane>
+                  <ChoiceBox layoutX="37.0" layoutY="153.0" prefWidth="150.0" />
+                  <Label layoutX="25.0" layoutY="127.0" text="Уровень вашей активности:" />
+                  <Pane layoutX="25.0" layoutY="202.0" prefHeight="90.0" prefWidth="174.0">
+                     <children>
+                        <RadioButton layoutX="14.0" layoutY="36.0" mnemonicParsing="false" selected="true" text="RadioButton">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="formula" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton layoutX="14.0" layoutY="67.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$formula" />
+                        <Label layoutY="6.0" text="Формула расчёта:" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane layoutX="252.0" layoutY="118.0" prefHeight="198.0" prefWidth="138.0" style="-fx-background-color: #FFFFE0; -fx-background-radius: 10 10 10 10;">
+               <children>
+                  <TextField fx:id="ageField" layoutX="12.0" layoutY="33.0" prefHeight="26.0" prefWidth="70.0" />
+                  <Label layoutX="12.0" layoutY="14.0" text="Возраст:" />
+                  <Pane layoutX="82.0" layoutY="33.0" prefHeight="26.0" prefWidth="45.0" style="-fx-background-color: #000000; -fx-background-radius: 0 15 15 0;">
+                     <children>
+                        <Text fill="WHITE" layoutX="11.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="лет">
+                           <font>
+                              <Font name="Times New Roman" size="17.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <TextField fx:id="heightField" layoutX="12.0" layoutY="86.0" prefHeight="26.0" prefWidth="70.0" />
+                  <Pane layoutX="82.0" layoutY="86.0" prefHeight="26.0" prefWidth="45.0" style="-fx-background-color: #000000; -fx-background-radius: 0 15 15 0;">
+                     <children>
+                        <Text fill="WHITE" layoutX="7.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" см">
+                           <font>
+                              <Font name="Times New Roman" size="17.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Label layoutX="12.0" layoutY="69.0" text="Рост:" />
+                  <TextField fx:id="weightField" layoutX="12.0" layoutY="142.0" prefHeight="26.0" prefWidth="70.0" />
+                  <Pane layoutX="82.0" layoutY="142.0" prefHeight="26.0" prefWidth="45.0" style="-fx-background-color: #000000; -fx-background-radius: 0 15 15 0;">
+                     <children>
+                        <Text fill="WHITE" layoutX="15.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="кг">
+                           <font>
+                              <Font name="Times New Roman" size="17.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Label layoutX="12.0" layoutY="125.0" text="Вес:" />
+               </children>
+            </Pane>
+            <Button fx:id="clearButton" layoutX="22.0" layoutY="424.0" mnemonicParsing="false" onAction="#clearAll" prefHeight="26.0" prefWidth="223.0" style="-fx-background-color: #F0E68C; -fx-background-radius: 25 25 25 25;" text="Очистить поля" />
+         </children>
+      </AnchorPane>
+      <Pane layoutX="388.0" layoutY="-220.0" prefHeight="303.0" prefWidth="326.0" rotate="21.5" style="-fx-background-color: #FFFFE0; -fx-background-radius: 0 0 50 25;" />
+      <Text layoutX="32.0" layoutY="438.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;Человек есть то, что он ест&quot;,  Ⓒ Лукреций." wrappingWidth="244.79999999999995">
+         <font>
+            <Font name="Segoe Print" size="13.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Text>
+      <Pane layoutX="-92.0" layoutY="-20.0" prefHeight="97.0" prefWidth="182.0" rotate="-10.9" style="-fx-background-color: #FFFFE0; -fx-background-radius: 50 50 50 50;" />
+   </children>
 </AnchorPane>

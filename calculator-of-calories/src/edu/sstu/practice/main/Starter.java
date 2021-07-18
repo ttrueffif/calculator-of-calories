@@ -11,8 +11,9 @@ public class Starter extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("../ui/StartPage.fxml"));
-        stage.setTitle("Hello World");
+        stage.setTitle("Калькулятор калорий");
         stage.setScene(new Scene(root));
+        stage.setResizable(false);
         stage.show();
     }
     
