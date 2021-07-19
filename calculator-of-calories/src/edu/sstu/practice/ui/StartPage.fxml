@@ -15,7 +15,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" style="-fx-background-color: #FFE4B5;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.sstu.practice.controllers.StartPageController">
    <children>
       <AnchorPane layoutX="70.0" layoutY="78.0" prefHeight="344.0" prefWidth="243.0" AnchorPane.bottomAnchor="78.0" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="78.0">
@@ -28,12 +27,12 @@
                   <BoxBlur height="10.0" width="10.0" />
                </effect>
             </ImageView>
-            <Label layoutX="-16.0" layoutY="30.0" text="Калькулятор калорий">
+            <Label layoutX="-15.0" layoutY="39.0" text="Калькулятор калорий">
                <font>
                   <Font name="Times New Roman Bold Italic" size="25.0" />
                </font>
             </Label>
-            <Text layoutX="29.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Калькулятор калорий позволит вам рассчитать то количество энергии, которое необходимо ежедневно получать вашему организму в зависимости от вашего роста, веса, возраста и степени физической активности (норма калорий)." wrappingWidth="200.0" />
+            <Text layoutX="14.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Калькулятор калорий позволит вам рассчитать то количество энергии, которое необходимо ежедневно получать вашему организму в зависимости от вашего роста, веса, возраста и степени физической активности (норма калорий)." wrappingWidth="200.0" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="329.0" layoutY="18.0" prefHeight="464.0" prefWidth="406.0" AnchorPane.bottomAnchor="18.0" AnchorPane.rightAnchor="14.600000000000023" AnchorPane.topAnchor="18.0">
@@ -46,30 +45,31 @@
             </Label>
             <Pane layoutX="22.0" layoutY="105.0" prefHeight="306.0" prefWidth="223.0" style="-fx-background-color: #FFFFE0; -fx-background-radius: 10 10 10 10;">
                <children>
-                  <Pane layoutX="14.0" layoutY="14.0" prefHeight="90.0" prefWidth="196.0">
+                  <Pane layoutX="14.0" layoutY="22.0" prefHeight="90.0" prefWidth="196.0">
                      <children>
-                        <RadioButton layoutX="24.0" layoutY="27.0" mnemonicParsing="false" selected="true" text="Мужчина">
+                        <RadioButton fx:id="male" layoutX="24.0" layoutY="27.0" mnemonicParsing="false" selected="true" text="Мужчина">
                            <toggleGroup>
                               <ToggleGroup fx:id="gender" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton layoutX="23.0" layoutY="58.0" mnemonicParsing="false" text="Женщина" toggleGroup="$gender" />
+                        <RadioButton fx:id="female" layoutX="23.0" layoutY="58.0" mnemonicParsing="false" text="Женщина" toggleGroup="$gender" />
                         <Label layoutX="10.0" layoutY="6.0" text="Пол:" />
                      </children>
                   </Pane>
-                  <ChoiceBox layoutX="37.0" layoutY="153.0" prefWidth="150.0" />
+                  <ChoiceBox fx:id="activitiesBox" layoutX="23.0" layoutY="153.0" prefHeight="25.0" prefWidth="174.0" />
                   <Label layoutX="25.0" layoutY="127.0" text="Уровень вашей активности:" />
                   <Pane layoutX="25.0" layoutY="202.0" prefHeight="90.0" prefWidth="174.0">
                      <children>
-                        <RadioButton layoutX="14.0" layoutY="36.0" mnemonicParsing="false" selected="true" text="RadioButton">
+                        <RadioButton fx:id="mifflin" layoutX="14.0" layoutY="36.0" mnemonicParsing="false" selected="true" text="Миффлина - Сан Жеора">
                            <toggleGroup>
                               <ToggleGroup fx:id="formula" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton layoutX="14.0" layoutY="67.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$formula" />
+                        <RadioButton fx:id="benedikt" layoutX="14.0" layoutY="67.0" mnemonicParsing="false" text="Харриса-Бенедикта" toggleGroup="$formula" />
                         <Label layoutY="6.0" text="Формула расчёта:" />
                      </children>
                   </Pane>
+                  <Label fx:id="warning" layoutX="23.0" layoutY="178.0" textFill="RED" />
                </children>
             </Pane>
             <Pane layoutX="252.0" layoutY="118.0" prefHeight="198.0" prefWidth="138.0" style="-fx-background-color: #FFFFE0; -fx-background-radius: 10 10 10 10;">
@@ -110,6 +110,7 @@
                </children>
             </Pane>
             <Button fx:id="clearButton" layoutX="22.0" layoutY="424.0" mnemonicParsing="false" onAction="#clearAll" prefHeight="26.0" prefWidth="223.0" style="-fx-background-color: #F0E68C; -fx-background-radius: 25 25 25 25;" text="Очистить поля" />
+            <Label fx:id="errorMessage" layoutX="266.0" layoutY="100.0" textFill="RED" />
          </children>
       </AnchorPane>
       <Pane layoutX="388.0" layoutY="-220.0" prefHeight="303.0" prefWidth="326.0" rotate="21.5" style="-fx-background-color: #FFFFE0; -fx-background-radius: 0 0 50 25;" />
