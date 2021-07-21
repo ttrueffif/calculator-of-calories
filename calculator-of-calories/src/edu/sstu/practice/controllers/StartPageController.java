@@ -2,17 +2,22 @@ package edu.sstu.practice.controllers;
 
 import edu.sstu.practice.model.Activity;
 import edu.sstu.practice.model.User;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Set;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.Stage;
 
 public class StartPageController implements Initializable {
     
@@ -45,9 +50,9 @@ public class StartPageController implements Initializable {
         activitiesBox.getItems().addAll(temp);
     }
 
-    public void submit(ActionEvent event) {
+    public void submit(ActionEvent event) throws IOException {
         
-        int age = 0;
+        int age = 0;    
         double weight = 0.0, height = 0.0;
         
         try {
@@ -55,9 +60,10 @@ public class StartPageController implements Initializable {
             height = Double.parseDouble(heightField.getText());
             weight = Double.parseDouble(weightField.getText());
             
-            if (age < 0 || height < 0 || weight < 0) {
-                throw new RuntimeException("Отрицательные значения?");
-            }
+            if (age <= 0 || height < 45 || weight < 3 || age > 100
+                    || height > 213 || weight > 250) {
+                throw new RuntimeException("Введеные неккоректные значения!");
+            } 
             errorMessage.setText("");
             
             if (activitiesBox.getValue() == null) {
@@ -80,11 +86,27 @@ public class StartPageController implements Initializable {
         
         User user = new User(age, height, weight, (RadioButton)gender.getSelectedToggle(), 
             (RadioButton)formula.getSelectedToggle(), activitiesBox.getValue());
-        double result = user.count();
         
-        System.out.println(result);           
+        createResultStage(user);
     }
-     
+    
+    public void createResultStage(User user) throws IOException {
+        Stage stage = new Stage();
+        stage.setTitle("Результаты");
+        FXMLLoader temp = new FXMLLoader(getClass().getResource("../ui/SecondPage.fxml"));
+        Parent root = temp.load();
+        
+        SecondPageController controller = temp.getController();
+        controller.addData(user);
+        
+        stage.setScene(new Scene(root));
+        stage.setResizable(false); 
+        
+        
+        
+        stage.show();
+    }
+    
     public void clearAll() {
         ageField.clear();
         heightField.clear();

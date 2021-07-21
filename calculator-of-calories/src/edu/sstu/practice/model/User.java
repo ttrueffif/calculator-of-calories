@@ -26,12 +26,8 @@ public class User {
         double result = 0.0;
         
         switch(formula.getId()) {
-            case "mifflin":
-                result = countByMifflin();
-                break;
-            case "benedikt":
-                result = countByBenedikt();
-                break;
+            case "mifflin" -> result = countByMifflin();
+            case "benedikt" -> result = countByBenedikt();
         }
         
         return result;
@@ -43,12 +39,8 @@ public class User {
         double result = 0.0;
         
         switch (gender.getId()) {
-            case "male":
-                result = (10 * weight + 6.25 * height - 5 * age + 5) * Activity.ACTIVITIES.get(activity);
-                break;
-            case "female":
-                result = (10 * weight + 6.25 * height - 5 * age - 161) * Activity.ACTIVITIES.get(activity);
-                break;
+            case "male" -> result = (10 * weight + 6.25 * height - 5 * age + 5) * Activity.ACTIVITIES.get(activity);
+            case "female" -> result = (10 * weight + 6.25 * height - 5 * age - 161) * Activity.ACTIVITIES.get(activity);
         }
         
         return result;
@@ -60,24 +52,26 @@ public class User {
         double result = 0.0;
         
         switch(gender.getId()) {
-            case "male":
+            case "male" -> {
                 double bmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
                 result = bmr * Activity.ACTIVITIES.get(activity);
-                break;
-            case "female":
+            }
+            case "female" -> {
                 double bmr2 = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
                 result = bmr2 * Activity.ACTIVITIES.get(activity);
-                break;
+            }
         }
         
         return result;
         
     }
+    
+    public double imb() {
+        return weight / Math.pow((height / 100), 2);
+    }
 
     @Override
     public String toString() {
         return "User{" + "age=" + age + ", height=" + height + ", weight=" + weight + ", gender=" + gender + ", formula=" + formula + ", activity=" + activity + '}';
-    }
-    
-    
+    }    
 }

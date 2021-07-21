@@ -32,7 +32,10 @@
                   <Font name="Times New Roman Bold Italic" size="25.0" />
                </font>
             </Label>
-            <Text layoutX="14.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Калькулятор калорий позволит вам рассчитать то количество энергии, которое необходимо ежедневно получать вашему организму в зависимости от вашего роста, веса, возраста и степени физической активности (норма калорий)." wrappingWidth="200.0" />
+            <Text layoutX="14.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Калькулятор калорий позволит вам рассчитать то количество энергии, которое необходимо ежедневно получать вашему организму в зависимости от вашего роста, веса, возраста и степени физической активности (норма калорий)." wrappingWidth="223.20000000000005">
+               <font>
+                  <Font name="Sitka Small" size="12.0" />
+               </font></Text>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="329.0" layoutY="18.0" prefHeight="464.0" prefWidth="406.0" AnchorPane.bottomAnchor="18.0" AnchorPane.rightAnchor="14.600000000000023" AnchorPane.topAnchor="18.0">
@@ -56,8 +59,8 @@
                         <Label layoutX="10.0" layoutY="6.0" text="Пол:" />
                      </children>
                   </Pane>
-                  <ChoiceBox fx:id="activitiesBox" layoutX="23.0" layoutY="153.0" prefHeight="25.0" prefWidth="174.0" />
-                  <Label layoutX="25.0" layoutY="127.0" text="Уровень вашей активности:" />
+                  <ChoiceBox fx:id="activitiesBox" layoutX="21.0" layoutY="153.0" prefHeight="25.0" prefWidth="187.0" />
+                  <Label layoutX="23.0" layoutY="127.0" text="Уровень вашей активности:" />
                   <Pane layoutX="25.0" layoutY="202.0" prefHeight="90.0" prefWidth="174.0">
                      <children>
                         <RadioButton fx:id="mifflin" layoutX="14.0" layoutY="36.0" mnemonicParsing="false" selected="true" text="Миффлина - Сан Жеора">

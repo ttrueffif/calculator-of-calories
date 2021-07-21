@@ -10,11 +10,11 @@ public final class Activity {
     
     static
     {
-        ACTIVITIES.put("Минимальная активность", 1.2);
-        ACTIVITIES.put("Слабая активность", 1.375);
-        ACTIVITIES.put("Средняя активность", 1.55);
-        ACTIVITIES.put("Высокая активность", 1.725);
-        ACTIVITIES.put("Экстра-активность", 1.9);
+        ACTIVITIES.put("Минимальный (поход до магазина)", 1.2);
+        ACTIVITIES.put("Слабый (1 - 2 раза в неделю)", 1.375);
+        ACTIVITIES.put("Средний (3 раза в неделю)", 1.55);
+        ACTIVITIES.put("Высокий (4 - 5 раз в неделю)", 1.725);
+        ACTIVITIES.put("Экстра (тяжелый физический труд)", 1.9);
         
     }
 
